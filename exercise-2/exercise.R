@@ -61,11 +61,15 @@ ggplot(data = diamonds) +
 
 # This has a lot of outliers, making it harder to read. To fix this, draw the same plot but
 # with a _logarithmic_ scale for the y axis.
-
+ggplot(data = diamonds) +
+  geom_boxplot(mapping = aes(x=color, y=price)) +
+  scale_y_log10()
 
 # For another version, draw the same plot but with `violin` geometry instead of `boxplot` geometry!
 # How does the logarithmic scale change the data presentation?
-
+ggplot(data = diamonds) +
+  geom_violin(mapping = aes(x=color, y=price)) +
+  scale_y_log10()
 
 # Another interesting plot: draw a plot of the diamonds price (y) by carat (x), using a heatmap of 2d bins
 # (geom_bin2d)
